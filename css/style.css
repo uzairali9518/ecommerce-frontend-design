@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -9,19 +8,28 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
   color: #333;
+  line-height: 1.6;
 }
 
 header {
   background-color: #222;
   color: white;
-  padding: 10px 0;
+  padding: 15px 0;
   text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
 }
 
 nav a {
   color: white;
-  margin: 0 20px;
+  margin: 0 15px;
   text-decoration: none;
+  padding: 5px 0;
 }
 
 nav a:hover {
@@ -29,14 +37,19 @@ nav a:hover {
 }
 
 .hero {
-  padding: 50px;
+  padding: 40px 20px;
   background-color: #eaeaea;
   text-align: center;
 }
 
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
 .product-listing {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   padding: 20px;
 }
@@ -48,21 +61,30 @@ nav a:hover {
   border-radius: 8px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
 }
 
 .product-card img {
   width: 100%;
   height: auto;
   border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .add-to-cart {
   background-color: #222;
   color: white;
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 4px;
+  width: 100%;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .add-to-cart:hover {
@@ -77,28 +99,85 @@ footer {
   margin-top: 20px;
 }
 
-/* Contact Form */
+
 form {
   max-width: 600px;
   margin: 20px auto;
+  padding: 0 20px;
 }
 
 input, textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 12px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1rem;
 }
 
 button {
-  padding: 10px 20px;
+  padding: 12px 25px;
   background-color: #222;
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #444;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 30px 15px;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .product-listing {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 15px;
+  }
+  
+  nav a {
+    margin: 0 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 25px 10px;
+  }
+  
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  
+  .product-listing {
+    grid-template-columns: 1fr;
+  }
+  
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav a {
+    margin: 5px 0;
+    display: block;
+  }
+  
+  form {
+    padding: 0 15px;
+  }
+  
+  input, textarea, button {
+    padding: 10px;
+  }
 }
